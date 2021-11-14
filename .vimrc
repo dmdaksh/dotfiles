@@ -119,6 +119,7 @@ Plug 'tomasiser/vim-code-dark'
 "Plug 'preservim/nerdtree'
 "Plug 'dense-analysis/ale'
 "Plug 'majutsushi/tagbar'
+Plug 'jiangmiao/auto-pairs'
 Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
