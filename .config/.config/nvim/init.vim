@@ -7,13 +7,13 @@ set number
 " Enable syntax highlighting
 syntax on
 " set tabs to have 4 spaces
-set ts=2 sts=2
+set ts=4 sts=4
 " indent when moving to the next line while writing code
 set autoindent
 " expand tabs into spaces
 set expandtab
 " when using the >> or << commands, shift lines by 4 spaces
-set shiftwidth=2
+set shiftwidth=4
 " show a visual line under the cursor's current line
 "" set cursorline
 " show the matching part of the pair for [] {} and ()
