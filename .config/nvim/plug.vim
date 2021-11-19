@@ -10,6 +10,8 @@ Plug 'tomasr/molokai'
 " auto closing parenthesis
 "" Plug 'cohama/lexima.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 if has('nvim')
     Plug 'neovim/nvim-lspconfig'
