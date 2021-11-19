@@ -8,7 +8,8 @@ call plug#begin()
 " colorscheme
 Plug 'tomasr/molokai'
 " auto closing parenthesis
-Plug 'cohama/lexima.vim'
+"" Plug 'cohama/lexima.vim'
+Plug 'jiangmiao/auto-pairs'
 
 if has('nvim')
     Plug 'neovim/nvim-lspconfig'
@@ -19,6 +20,8 @@ if has('nvim')
     Plug 'hrsh7th/nvim-cmp'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+    Plug 'nvim-treesitter/playground'
 endif
 
 
