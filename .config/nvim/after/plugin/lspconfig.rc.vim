@@ -6,6 +6,7 @@ endif
 
 lua << EOF
 local cmp = require'cmp'
+local lspkind = require'lspkind'
 
   cmp.setup({
     snippet = {
@@ -39,8 +40,11 @@ local cmp = require'cmp'
       -- { name = 'snippy' }, -- For snippy users.
     }, {
       { name = 'buffer' },
-    })
-  })
+    }),
+  formatting = {
+      format = lspkind.cmp_format({with_text=true, maxwidth=50})
+  }}
+  )
 
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline('/', {

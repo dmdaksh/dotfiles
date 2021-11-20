@@ -13,3 +13,4 @@ dotfiles
 - Install go (follow golang website instruction)
 - Install neovim nightly, vim-plug and open plug.vim and install plugins
 - For solarized theme, get the correct dircolors from dircolorsdb and update .dir_colors and .bashrc accordingly.
+- Add CaskaydiaCode font (Install from nerd fonts) to apply webdevicons plugin

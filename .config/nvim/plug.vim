@@ -6,7 +6,8 @@ endif
 call plug#begin()
 
 " colorscheme
-Plug 'tomasr/molokai'
+" Plug 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
 " auto closing parenthesis
 "" Plug 'cohama/lexima.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -20,10 +21,12 @@ if has('nvim')
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/nvim-cmp'
+    Plug 'onsails/lspkind-nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
     Plug 'nvim-treesitter/playground'
+    Plug 'kyazdani42/nvim-web-devicons'
 endif
 
 

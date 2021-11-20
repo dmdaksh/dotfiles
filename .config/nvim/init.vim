@@ -88,5 +88,9 @@ runtime ./plug.vim
 
 
 " setting colorscheme
-colorscheme molokai
+let g:solarized_termtrans=1
+colorscheme solarized
 
+lua require'nvim-web-devicons'.get_icons()
+" adding support for airline devicons
+" let g:airline_powerline_fonts = 1
