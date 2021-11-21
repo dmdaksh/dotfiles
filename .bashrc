@@ -128,7 +128,7 @@ export PS1='\w$(__git_ps1 " (%s)")\$ '
 alias nv=nvim
 
 # to use dircolordb file for solarized theme: https://github.com/seebi/dircolors-solarized
-eval `dircolors ~/.dircolorsdb/dircolors-solarized/dircolors.256dark`
+eval `dircolors ~/.dircolorsdb/dircolors-solarized/dircolors.ansi-dark`
 
 export TERM=xterm-256color        # for common 256 color terminals (e.g. gnome-terminal)
 export TERM=screen-256color       # for a tmux -2 session (also for screen)
