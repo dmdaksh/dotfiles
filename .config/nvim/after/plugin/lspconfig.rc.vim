@@ -2,7 +2,7 @@ if !exists('g:lspconfig')
     finish
 endif
 
-" set completeopt=menu,menuone,noselect
+set completeopt=menu,menuone,noselect
 
 lua << EOF
 local cmp = require'cmp'

@@ -7,7 +7,8 @@ call plug#begin()
 
 " colorscheme
 " Plug 'tomasr/molokai'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
+Plug 'overcache/NeoSolarized'
 " auto closing parenthesis
 "" Plug 'cohama/lexima.vim'
 Plug 'jiangmiao/auto-pairs'
