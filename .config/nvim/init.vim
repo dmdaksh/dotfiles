@@ -94,4 +94,5 @@ lua require'nvim-web-devicons'.get_icons()
 " gruvbox themes
 set termguicolors
 colorscheme gruvbox
+autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
 
