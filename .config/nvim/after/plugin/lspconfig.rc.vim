@@ -110,5 +110,21 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+-- setting up pyright separately
+-- nvim_lsp.pyright.setup{
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   settings = {
+--     python = {
+--       linting = {
+--         enabled = true,
+--         flake8Enabled = true
+--         }
+--       }
+--   },
+--   flags = {
+--       debounce_text_changes = 150
+--     }
+--   }
 EOF
 

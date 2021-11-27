@@ -8,7 +8,8 @@ call plug#begin()
 " colorscheme
 " Plug 'tomasr/molokai'
 " Plug 'altercation/vim-colors-solarized'
-Plug 'overcache/NeoSolarized'
+" Plug 'overcache/NeoSolarized'
+Plug 'morhetz/gruvbox'
 " auto closing parenthesis
 "" Plug 'cohama/lexima.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -28,6 +29,7 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
     Plug 'nvim-treesitter/playground'
     Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'lukas-reineke/indent-blankline.nvim'
 endif
 
 
