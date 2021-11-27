@@ -124,7 +124,6 @@ export NVM_DIR="$HOME/.nvm"
 . ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='\w$(__git_ps1 " (%s)")\$ '
-
 alias nv=nvim
 
 # to use dircolordb file for solarized theme: https://github.com/seebi/dircolors-solarized
@@ -134,3 +133,5 @@ export TERM=xterm-256color        # for common 256 color terminals (e.g. gnome-t
 export TERM=screen-256color       # for a tmux -2 session (also for screen)
 export TERM=rxvt-unicode-256color # for a colorful rxvt unicode session
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
