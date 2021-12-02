@@ -5,11 +5,17 @@ endif
 
 call plug#begin()
 
+""""""""""""""""""""""""""""""""""""""
 " colorscheme
 " Plug 'tomasr/molokai'
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'overcache/NeoSolarized'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+" Plug 'projekt0n/github-nvim-theme'
+" Using Vim-Plug:
+Plug 'Mofiqul/dracula.nvim'
+
+""""""""""""""""""""""""""""""""""""""
 " auto closing parenthesis
 "" Plug 'cohama/lexima.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -29,7 +35,6 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
     Plug 'nvim-treesitter/playground'
     Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'lukas-reineke/indent-blankline.nvim'
 endif
 
 

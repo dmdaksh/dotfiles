@@ -46,8 +46,8 @@ set signcolumn=yes
 filetype plugin on
 " setting scrolloff to 8
 set scrolloff=10
-
-
+" setting colorcolumn
+set colorcolumn=120
 
 " """"""""""""""""""""""""""""""""
 " FINDING FILES:
@@ -93,6 +93,7 @@ lua require'nvim-web-devicons'.get_icons()
 
 " gruvbox themes
 set termguicolors
-colorscheme gruvbox
-autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
+colorscheme dracula
+
+let g:airline_powerline_fonts=1
 
