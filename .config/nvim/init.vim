@@ -93,7 +93,7 @@ lua require'nvim-web-devicons'.get_icons()
 
 " gruvbox themes
 set termguicolors
-colorscheme dracula
+colorscheme gruvbox
 
 let g:airline_powerline_fonts=1
 

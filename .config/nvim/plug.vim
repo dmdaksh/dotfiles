@@ -10,10 +10,10 @@ call plug#begin()
 " Plug 'tomasr/molokai'
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'overcache/NeoSolarized'
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 " Plug 'projekt0n/github-nvim-theme'
 " Using Vim-Plug:
-Plug 'Mofiqul/dracula.nvim'
+"  Plug 'Mofiqul/dracula.nvim'
 
 """"""""""""""""""""""""""""""""""""""
 " auto closing parenthesis
