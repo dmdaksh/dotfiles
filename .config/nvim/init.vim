@@ -95,5 +95,4 @@ lua require'nvim-web-devicons'.get_icons()
 set termguicolors
 colorscheme gruvbox
 
-let g:airline_powerline_fonts=1
 

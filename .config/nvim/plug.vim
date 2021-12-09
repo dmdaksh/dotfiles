@@ -19,8 +19,8 @@ Plug 'morhetz/gruvbox'
 " auto closing parenthesis
 "" Plug 'cohama/lexima.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'dstein64/vim-startuptime'
 
 if has('nvim')
     Plug 'neovim/nvim-lspconfig'
