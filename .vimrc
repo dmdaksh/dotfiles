@@ -7,15 +7,15 @@ set number
 " Enable syntax highlighting
 syntax on
 " set tabs to have 4 spaces
-set ts=4 sts=4
+set ts=2 sts=2
 " indent when moving to the next line while writing code
 set autoindent
 " expand tabs into spaces
 set expandtab
 " when using the >> or << commands, shift lines by 4 spaces
-set shiftwidth=4
+set shiftwidth=2
 " show a visual line under the cursor's current line
-"" set cursorline
+set cursorline
 " show the matching part of the pair for [] {} and ()
 set showmatch
 " enable all Python syntax highlighting features
@@ -82,47 +82,5 @@ command! MakeTags !ctags -R .
 """"""""""""""""""""""""""""""""""
 
 
-
-" mapping esc to caps
-imap jj <Esc>
-" brackets, parenthesis, single/double inverted commas autocomplete
-""inoremap { {<CR>}<Esc>ko
-""inoremap [ []<Esc>i
-""inoremap ( ()<Esc>i
-""inoremap ' ''<Esc>i
-""inoremap " ""<Esc>i
-
-" configure powerline
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-
-set laststatus=2
-
-
-
-
-" nnoremap <C-n> :NERDTree<CR>
-" nnoremap <C-t> :NERDTreeToggle<CR>
-" nnoremap <C-f> :NERDTreeFind<CR>
-
-
-"nmap <F8> :TagbarToggle<CR>
-
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'tomasiser/vim-code-dark'
-"" Plug 'davidhalter/jedi-vim'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
-"Plug 'preservim/nerdtree'
-"Plug 'dense-analysis/ale'
-"Plug 'majutsushi/tagbar'
-Plug 'jiangmiao/auto-pairs'
-Plug 'ycm-core/YouCompleteMe'
-
-call plug#end()
-
-" setting colorscheme
-colorscheme codedark
+" mapping jj to <Esc>
+inoremap jj <Esc> 
