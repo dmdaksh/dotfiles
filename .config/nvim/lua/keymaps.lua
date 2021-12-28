@@ -31,6 +31,11 @@ map('n', '<leader>q', ':qa!<CR>', default_opts)
 map('n', '<leader><space>', 'za', default_opts)
 
 -- git & fugitive
-map('n', '<leader>gs', ':G<CR>', default_opts)
-map('n', '<leader>gh', ':diffget //2<CR>', default_opts)
-map('n', '<leader>gl', ':diffget //3<CR>', default_opts)
+-- map('n', '<leader>gs', ':G<CR>', default_opts)
+-- map('n', '<leader>gh', ':diffget //2<CR>', default_opts)
+-- map('n', '<leader>gl', ':diffget //3<CR>', default_opts)
+
+-- Diffview
+map('n', '<leader>go', ':DiffviewOpen<CR>', default_opts)
+map('n', '<leader>gc', ':DiffviewClose<CR>', default_opts)
+map('n', '<leader>fh', ':DiffviewFileHistory<CR>', default_opts)

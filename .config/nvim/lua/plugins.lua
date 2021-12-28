@@ -53,10 +53,13 @@ return require('packer').startup(function()
     use 'dstein64/vim-startuptime'
 
     -- git plugin
-    use 'tpope/vim-fugitive'
+    -- use 'tpope/vim-fugitive'
 
     -- git decorative plugin
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
+
+    -- git diffview
+    use {'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim'}
 
 end)
 
