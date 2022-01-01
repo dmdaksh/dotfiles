@@ -150,7 +150,7 @@ tools:
     lint-command: 'csvlint'
 
   lua-lua-format: &lua-lua-format
-    format-command: 'lua-format -i'
+    format-command: 'lua-format -i --indent-width=2 --tab-width=2 --continuation-indent-width=2'
     format-stdin: true
 
   blade-blade-formatter: &blade-blade-formatter
