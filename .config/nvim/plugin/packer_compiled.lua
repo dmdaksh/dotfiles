@@ -104,6 +104,16 @@ _G.packer_plugins = {
     path = "/home/dmdaksh/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/dmdaksh/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/dmdaksh/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/dmdaksh/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -113,11 +123,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dmdaksh/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  ["nightfox.nvim"] = {
-    loaded = true,
-    path = "/home/dmdaksh/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
-    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-autopairs"] = {
     config = { "\27LJ\1\2<\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
