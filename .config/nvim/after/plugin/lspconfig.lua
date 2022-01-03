@@ -110,9 +110,13 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- Install lua, luarocks, luaformatter
+-- Install yapf, flake8 (optional: black, isort): pip install yapf flake8
+-- Install markdownlint-cli: npm i -g markdownlint-cli
+-- Install pandoc: pacman -S pandoc
 nvim_lsp.efm.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = {'lua', 'python'},
+    filetypes = {'lua', 'python', 'markdown'},
     init_options = {documentFormatting = true}
  })
