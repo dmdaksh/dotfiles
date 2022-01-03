@@ -61,5 +61,13 @@ return require('packer').startup(function()
   -- git diffview
   use {'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim'}
 
-end)
+  -- markdown preview
+  -- visit https://github.com/iamcco/markdown-preview.nvim for more info
+  use {
+    'iamcco/markdown-preview.nvim',
+    ft = 'markdown',
+    run = function() vim.fn['mkdp#util#install']() end,
+    config = function() require('markdown-preview.nvim').setup() end
+  }
 
+end)
