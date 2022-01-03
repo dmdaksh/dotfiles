@@ -36,7 +36,7 @@ tools:
       - '%f: %l: %m'
 
   markdown-pandoc: &markdown-pandoc
-    format-command: 'pandoc -f markdown -t gfm -sp --tab-stop=2'
+    format-command: 'pandoc -f markdown -t markdown -sp --tab-stop=2'
 
   rst-pandoc: &rst-pandoc
     format-command: 'pandoc -f rst -t rst -s --columns=79'
