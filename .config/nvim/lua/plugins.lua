@@ -8,10 +8,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- autopairs
-  use {
-    'windwp/nvim-autopairs',
-    config = function() require('nvim-autopairs').setup() end
-  }
+  use {'windwp/nvim-autopairs'}
 
   -- icons
   use 'kyazdani42/nvim-web-devicons'
@@ -62,11 +59,6 @@ return require('packer').startup(function()
   use {'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim'}
 
   -- markdown preview
-  -- visit https://github.com/iamcco/markdown-preview.nvim for more info
-  use {
-    'iamcco/markdown-preview.nvim',
-    ft = 'markdown',
-    run = function() vim.fn['mkdp#util#install']() end
-  }
+  use {"davidgranstrom/nvim-markdown-preview"}
 
 end)
