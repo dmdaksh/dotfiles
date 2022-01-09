@@ -35,10 +35,10 @@ return require('packer').startup(function()
   }
 
   -- colorscheme 
-  -- use 'morhetz/gruvbox'
+  use 'morhetz/gruvbox'
   -- use 'olimorris/onedarkpro.nvim'
   -- use 'EdenEast/nightfox.nvim'
-  use "rebelot/kanagawa.nvim"
+  -- use "rebelot/kanagawa.nvim"
 
   -- telescope
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/plenary.nvim'}}}

@@ -59,4 +59,5 @@ opt.path:append('**') -- search into subdirs
 opt.lazyredraw = true -- buffer screen updates (lazy redraw)
 opt.synmaxcol = 240 -- max col for syntax highlight
 
-opt.termguicolors = true -- enable 24-bit RGB colors
+-- opt.termguicolors = true -- enable 24-bit RGB colors
+cmd[[colorscheme gruvbox]]
