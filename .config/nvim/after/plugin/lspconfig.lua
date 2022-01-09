@@ -89,7 +89,7 @@ https://github.com/golang/tools/tree/master/gopls
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'tsserver'}
+local servers = { 'pyright', 'tsserver', 'sqls'}
 
 -- Set settings for language servers below
 --
