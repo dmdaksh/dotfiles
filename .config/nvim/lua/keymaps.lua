@@ -39,3 +39,13 @@ map('n', '<leader><space>', 'za', default_opts)
 map('n', '<leader>go', ':DiffviewOpen<CR>', default_opts)
 map('n', '<leader>gc', ':DiffviewClose<CR>', default_opts)
 map('n', '<leader>fh', ':DiffviewFileHistory<CR>', default_opts)
+
+-- Switch between tabs
+map('n', '<leader>1', '1gt', default_opts)
+map('n', '<leader>2', '2gt', default_opts)
+map('n', '<leader>3', '3gt', default_opts)
+map('n', '<leader>4', '4gt', default_opts)
+map('n', '<leader>5', '5gt', default_opts)
+
+-- nvim tree toggle
+map('n', '<leader>nt', ':NvimTreeToggle<CR>', default_opts)

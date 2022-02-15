@@ -43,6 +43,12 @@ return require('packer').startup(function()
   -- telescope
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/plenary.nvim'}}}
 
+  -- nvim tree
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config = function() require'nvim-tree'.setup {} end
+  }
+
   -- display startup time
   use 'dstein64/vim-startuptime'
 
