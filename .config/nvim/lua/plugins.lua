@@ -67,4 +67,10 @@ return require('packer').startup(function()
   -- markdown preview
   use {"davidgranstrom/nvim-markdown-preview"}
 
+  -- rust tools
+  use {'simrat39/rust-tools.nvim'}
+
+  -- telescope ui select
+  use {'nvim-telescope/telescope-ui-select.nvim'}
+
 end)

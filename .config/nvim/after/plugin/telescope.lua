@@ -18,3 +18,4 @@ map('n', ';,', [[<cmd>lua require('telescope.builtin').buffers()<cr>]],
 map('n', ';;', [[<cmd>lua require('telescope.builtin').help_tags()<cr>]],
     default_opts)
 
+require("telescope").load_extension("ui-select")
