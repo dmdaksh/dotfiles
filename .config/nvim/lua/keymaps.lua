@@ -8,11 +8,11 @@ map('n', '<leader>c', ':nohl<CR>', default_opts)
 -- map Esc to jj
 map('i', 'jj', '<Esc>', {noremap = true})
 
--- don't use arrow keys
-map('', '<up>', '<nop>', {noremap = true})
-map('', '<down>', '<nop>', {noremap = true})
-map('', '<left>', '<nop>', {noremap = true})
-map('', '<right>', '<nop>', {noremap = true})
+---- don't use arrow keys
+--map('', '<up>', '<nop>', {noremap = true})
+--map('', '<down>', '<nop>', {noremap = true})
+--map('', '<left>', '<nop>', {noremap = true})
+--map('', '<right>', '<nop>', {noremap = true})
 
 -- fast saving with <leader> and s
 map('n', '<leader>s', ':w<CR>', default_opts)
@@ -49,3 +49,9 @@ map('n', '<leader>5', '5gt', default_opts)
 
 -- nvim tree toggle
 map('n', '<leader>nt', ':NvimTreeToggle<CR>', default_opts)
+
+-- resize window
+map('n', '<up>',    ':resize +2<CR>', default_opts)
+map('n', '<down>',  ':resize -2<CR>', default_opts)
+map('n', '<left>',  ':vertical resize +2<CR>', default_opts)
+map('n', '<right>', ':vertical resize -2<CR>', default_opts)
