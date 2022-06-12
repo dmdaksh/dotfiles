@@ -62,6 +62,7 @@ return require('packer').startup(function()
   use {'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim'}
 
   -- markdown preview
+  -- install pandoc (user pkg manager) and live-server (npm i -g live-server)
   use {"davidgranstrom/nvim-markdown-preview"}
 
   -- rust tools
