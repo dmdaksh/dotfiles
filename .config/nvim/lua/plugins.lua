@@ -70,4 +70,7 @@ return require('packer').startup(function()
   -- telescope ui select
   use {'nvim-telescope/telescope-ui-select.nvim'}
 
+  -- dap
+  use {'mfussenegger/nvim-dap'}
+
 end)
