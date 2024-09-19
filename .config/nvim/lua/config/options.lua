@@ -5,3 +5,6 @@
 local opt = vim.opt
 
 opt.winbar = "%=%m %f"
+
+-- word wrap
+opt.wrap = true
