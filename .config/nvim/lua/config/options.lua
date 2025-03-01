@@ -8,3 +8,7 @@ opt.winbar = "%=%m %f"
 
 -- word wrap
 opt.wrap = true
+
+-- set timeoutlen
+opt.timeoutlen = 300
+opt.ttimeoutlen = 10
