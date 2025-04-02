@@ -1,0 +1,71 @@
+# ========================
+# ✅ Core Scientific Stack
+# ========================
+numpy           # Numerical computing
+pandas          # DataFrames
+scikit-learn    # Machine learning utilities
+scipy           # Scientific computing
+tqdm            # Progress bars
+
+# ========================
+# 📊 Visualization
+# ========================
+matplotlib      # Basic plotting
+seaborn         # Statistical plotting
+plotly          # Interactive plotting
+ipywidgets      # Jupyter interactivity
+ipympl          # Matplotlib backend for Jupyter
+altair          # Declarative statistical plots
+
+# ========================
+# 🤖 ML + Data Enhancements
+# ========================
+torch           # PyTorch core
+torchvision     # For image-related utilities
+torchaudio      # For audio processing
+xgboost         # Boosting algorithms
+lightgbm        # Light GBM models
+polars          # Fast DataFrames
+joblib          # Model serialization and parallelism
+pyarrow         # Arrow file format
+ujson           # Fast JSON parsing
+openpyxl        # Excel file reading
+h5py            # HDF5 file support
+
+# ========================
+# 🧪 Development & Testing
+# ========================
+black           # Code formatter
+ruff            # Linting + formatting
+pytest          # Testing framework
+mypy            # Static type checker
+pre-commit      # Git hooks for lint/test/format
+jupyter-black   # Format Jupyter notebook cells
+dotenv-linter   # .env file linter
+
+# ========================
+# 🔧 Utilities
+# ========================
+requests        # HTTP requests
+python-dotenv   # .env file management
+pydantic        # Data validation and settings management
+typer           # Type-safe CLI builder
+loguru          # Logging made easy
+rich            # Rich terminal output
+hydra-core      # Config management
+omegaconf       # Nested config support
+httpx           # Async HTTP requests
+aiohttp         # Async HTTP client
+
+# ========================
+# 📈 Experiment Tracking
+# ========================
+mlflow          # ML lifecycle tracking
+tensorboard     # Training visualization
+
+# ========================
+# 📘 Documentation & Notebooks
+# ========================
+jupyterlab      # Jupyter UI
+ipykernel       # Jupyter kernel support
+mkdocs          # Project documentation generator
