@@ -2,7 +2,7 @@ return {
   "rose-pine/neovim",
   name = "rose-pine",
   config = function()
-    -- make sure your terminal colors are enabled
+    -- make sure terminal colors are enabled
     vim.opt.termguicolors = true
 
     local rp = require("rose-pine")
@@ -20,7 +20,7 @@ return {
       groups = cfg.groups,
       before_highlight = cfg.before_highlight,
 
-      -- your overrides
+      -- my overrides
       disable_background = true,
       disable_float_background = true,
       highlight_groups = {
