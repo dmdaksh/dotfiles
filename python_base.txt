@@ -35,6 +35,7 @@ h5py            # HDF5 file support
 # ========================
 # 🧪 Development & Testing
 # ========================
+pyrefly         # Type checker and IDE
 black           # Code formatter
 ruff            # Linting + formatting
 pytest          # Testing framework
