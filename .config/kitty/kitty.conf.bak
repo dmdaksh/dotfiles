@@ -19,6 +19,6 @@ shell zsh --login --interactive
 macos_option_as_alt yes
 
 # BEGIN_KITTY_THEME
-# Kanagawa_dragon
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
