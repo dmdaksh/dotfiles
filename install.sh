@@ -84,6 +84,37 @@ if [ "$OS" = "Darwin" ]; then
     if [ "$DRY_RUN" = "true" ]; then
         dry_run_msg "Would install font-hack-nerd-font and font-caskaydia-cove-nerd-font casks via Homebrew"
     else
+        # Resolve orphan Hack font files before cask install to avoid collisions
+        if ! brew list --cask | grep -x "font-hack-nerd-font" &>/dev/null; then
+            local orphan_fonts=(
+                "$HOME/Library/Fonts/HackNerdFont-Bold.ttf"
+                "$HOME/Library/Fonts/HackNerdFont-BoldItalic.ttf"
+                "$HOME/Library/Fonts/HackNerdFont-Italic.ttf"
+                "$HOME/Library/Fonts/HackNerdFont-Regular.ttf"
+                "$HOME/Library/Fonts/HackNerdFontMono-Bold.ttf"
+                "$HOME/Library/Fonts/HackNerdFontMono-BoldItalic.ttf"
+                "$HOME/Library/Fonts/HackNerdFontMono-Italic.ttf"
+                "$HOME/Library/Fonts/HackNerdFontMono-Regular.ttf"
+                "$HOME/Library/Fonts/HackNerdFontPropo-Bold.ttf"
+                "$HOME/Library/Fonts/HackNerdFontPropo-BoldItalic.ttf"
+                "$HOME/Library/Fonts/HackNerdFontPropo-Italic.ttf"
+                "$HOME/Library/Fonts/HackNerdFontPropo-Regular.ttf"
+            )
+            local found_orphans=false
+            for f in "${orphan_fonts[@]}"; do
+                if [ -f "$f" ]; then
+                    found_orphans=true
+                    break
+                fi
+            done
+            if [ "$found_orphans" = "true" ]; then
+                warn "Found conflicting manual Hack Nerd Font files. Cleaning them up to allow Homebrew install..."
+                for f in "${orphan_fonts[@]}"; do
+                    rm -f "$f"
+                done
+            fi
+        fi
+
         brew install --cask font-hack-nerd-font || warn "Could not install Hack Nerd Font Cask"
         brew install --cask font-caskaydia-cove-nerd-font || warn "Could not install Caskaydia Cove Nerd Font Cask"
     fi
