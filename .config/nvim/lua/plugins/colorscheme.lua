@@ -1,22 +1,22 @@
 -- base kanagawa theme
-return {
-  {
-    "rebelot/kanagawa.nvim",
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("kanagawa-dragon")
-    end,
-  },
-}
-
--- -- base rose-pine theme
 -- return {
---   "rose-pine/neovim",
---   name = "rose-pine",
---   config = function()
---     vim.cmd("colorscheme rose-pine")
---   end,
+--   {
+--     "rebelot/kanagawa.nvim",
+--     priority = 1000,
+--     config = function()
+--       vim.cmd.colorscheme("kanagawa-dragon")
+--     end,
+--   },
 -- }
+
+-- base rose-pine theme
+return {
+  "rose-pine/neovim",
+  name = "rose-pine",
+  config = function()
+    vim.cmd("colorscheme rose-pine")
+  end,
+}
 
 -- -- custom rose-pine theme
 -- return {
