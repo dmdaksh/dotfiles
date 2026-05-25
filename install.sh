@@ -84,59 +84,62 @@ if [ "$OS" = "Darwin" ]; then
     if [ "$DRY_RUN" = "true" ]; then
         dry_run_msg "Would install font-hack-nerd-font and font-caskaydia-cove-nerd-font casks via Homebrew"
     else
-        # Resolve orphan Hack font files before cask install to avoid collisions
-        if ! brew list --cask | grep -x "font-hack-nerd-font" &>/dev/null; then
-            local orphan_fonts=(
-                "$HOME/Library/Fonts/HackNerdFont-Bold.ttf"
-                "$HOME/Library/Fonts/HackNerdFont-BoldItalic.ttf"
-                "$HOME/Library/Fonts/HackNerdFont-Italic.ttf"
-                "$HOME/Library/Fonts/HackNerdFont-Regular.ttf"
-                "$HOME/Library/Fonts/HackNerdFontMono-Bold.ttf"
-                "$HOME/Library/Fonts/HackNerdFontMono-BoldItalic.ttf"
-                "$HOME/Library/Fonts/HackNerdFontMono-Italic.ttf"
-                "$HOME/Library/Fonts/HackNerdFontMono-Regular.ttf"
-                "$HOME/Library/Fonts/HackNerdFontPropo-Bold.ttf"
-                "$HOME/Library/Fonts/HackNerdFontPropo-BoldItalic.ttf"
-                "$HOME/Library/Fonts/HackNerdFontPropo-Italic.ttf"
-                "$HOME/Library/Fonts/HackNerdFontPropo-Regular.ttf"
-            )
-            local existing_orphans=()
-            for f in "${orphan_fonts[@]}"; do
-                if [ -f "$f" ]; then
-                    existing_orphans+=("$f")
-                fi
-            done
-
-            if [ "${#existing_orphans[@]}" -gt 0 ]; then
-                warn "Found conflicting manual Hack Nerd Font files. Backing them up and attempting Homebrew install..."
-                local backup_dir
-                backup_dir="$(mktemp -d -t hack_font_backup)"
-                
-                # Backup orphans
-                for f in "${existing_orphans[@]}"; do
-                    cp "$f" "$backup_dir/"
-                    rm -f "$f"
+        setup_nerd_fonts() {
+            # Resolve orphan Hack font files before cask install to avoid collisions
+            if ! brew list --cask | grep -x "font-hack-nerd-font" &>/dev/null; then
+                local orphan_fonts=(
+                    "$HOME/Library/Fonts/HackNerdFont-Bold.ttf"
+                    "$HOME/Library/Fonts/HackNerdFont-BoldItalic.ttf"
+                    "$HOME/Library/Fonts/HackNerdFont-Italic.ttf"
+                    "$HOME/Library/Fonts/HackNerdFont-Regular.ttf"
+                    "$HOME/Library/Fonts/HackNerdFontMono-Bold.ttf"
+                    "$HOME/Library/Fonts/HackNerdFontMono-BoldItalic.ttf"
+                    "$HOME/Library/Fonts/HackNerdFontMono-Italic.ttf"
+                    "$HOME/Library/Fonts/HackNerdFontMono-Regular.ttf"
+                    "$HOME/Library/Fonts/HackNerdFontPropo-Bold.ttf"
+                    "$HOME/Library/Fonts/HackNerdFontPropo-BoldItalic.ttf"
+                    "$HOME/Library/Fonts/HackNerdFontPropo-Italic.ttf"
+                    "$HOME/Library/Fonts/HackNerdFontPropo-Regular.ttf"
+                )
+                local existing_orphans=()
+                for f in "${orphan_fonts[@]}"; do
+                    if [ -f "$f" ]; then
+                        existing_orphans+=("$f")
+                    fi
                 done
 
-                # Attempt installation
-                if brew install --cask font-hack-nerd-font; then
-                    success "Hack Nerd Font installed successfully via Homebrew."
-                    rm -rf "$backup_dir"
-                else
-                    warn "Failed to install Hack Nerd Font Cask. Restoring manual backup font files..."
+                if [ "${#existing_orphans[@]}" -gt 0 ]; then
+                    warn "Found conflicting manual Hack Nerd Font files. Backing them up and attempting Homebrew install..."
+                    local backup_dir
+                    backup_dir="$(mktemp -d -t hack_font_backup)"
+                    
+                    # Backup orphans
                     for f in "${existing_orphans[@]}"; do
-                        cp "$backup_dir/$(basename "$f")" "$f"
+                        cp "$f" "$backup_dir/"
+                        rm -f "$f"
                     done
-                    rm -rf "$backup_dir"
+
+                    # Attempt installation
+                    if brew install --cask font-hack-nerd-font; then
+                        success "Hack Nerd Font installed successfully via Homebrew."
+                        rm -rf "$backup_dir"
+                    else
+                        warn "Failed to install Hack Nerd Font Cask. Restoring manual backup font files..."
+                        for f in "${existing_orphans[@]}"; do
+                            cp "$backup_dir/$(basename "$f")" "$f"
+                        done
+                        rm -rf "$backup_dir"
+                    fi
+                else
+                    brew install --cask font-hack-nerd-font || warn "Could not install Hack Nerd Font Cask"
                 fi
             else
-                brew install --cask font-hack-nerd-font || warn "Could not install Hack Nerd Font Cask"
+                info "font-hack-nerd-font is already installed."
             fi
-        else
-            info "font-hack-nerd-font is already installed."
-        fi
 
-        brew install --cask font-caskaydia-cove-nerd-font || warn "Could not install Caskaydia Cove Nerd Font Cask"
+            brew install --cask font-caskaydia-cove-nerd-font || warn "Could not install Caskaydia Cove Nerd Font Cask"
+        }
+        setup_nerd_fonts
     fi
 
 elif [ "$OS" = "Linux" ]; then
