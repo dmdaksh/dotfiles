@@ -100,22 +100,42 @@ if [ "$OS" = "Darwin" ]; then
                 "$HOME/Library/Fonts/HackNerdFontPropo-Italic.ttf"
                 "$HOME/Library/Fonts/HackNerdFontPropo-Regular.ttf"
             )
-            local found_orphans=false
+            local existing_orphans=()
             for f in "${orphan_fonts[@]}"; do
                 if [ -f "$f" ]; then
-                    found_orphans=true
-                    break
+                    existing_orphans+=("$f")
                 fi
             done
-            if [ "$found_orphans" = "true" ]; then
-                warn "Found conflicting manual Hack Nerd Font files. Cleaning them up to allow Homebrew install..."
-                for f in "${orphan_fonts[@]}"; do
+
+            if [ "${#existing_orphans[@]}" -gt 0 ]; then
+                warn "Found conflicting manual Hack Nerd Font files. Backing them up and attempting Homebrew install..."
+                local backup_dir
+                backup_dir="$(mktemp -d -t hack_font_backup)"
+                
+                # Backup orphans
+                for f in "${existing_orphans[@]}"; do
+                    cp "$f" "$backup_dir/"
                     rm -f "$f"
                 done
+
+                # Attempt installation
+                if brew install --cask font-hack-nerd-font; then
+                    success "Hack Nerd Font installed successfully via Homebrew."
+                    rm -rf "$backup_dir"
+                else
+                    warn "Failed to install Hack Nerd Font Cask. Restoring manual backup font files..."
+                    for f in "${existing_orphans[@]}"; do
+                        cp "$backup_dir/$(basename "$f")" "$f"
+                    done
+                    rm -rf "$backup_dir"
+                fi
+            else
+                brew install --cask font-hack-nerd-font || warn "Could not install Hack Nerd Font Cask"
             fi
+        else
+            info "font-hack-nerd-font is already installed."
         fi
 
-        brew install --cask font-hack-nerd-font || warn "Could not install Hack Nerd Font Cask"
         brew install --cask font-caskaydia-cove-nerd-font || warn "Could not install Caskaydia Cove Nerd Font Cask"
     fi
 
