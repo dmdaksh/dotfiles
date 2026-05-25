@@ -3,12 +3,16 @@
 # Enable exit-on-error, error on undefined variables, and pipeline fail-fast
 set -euo pipefail
 
+# Ensure we run in a Bash shell (which supports arrays)
+[ -n "${BASH_VERSION:-}" ] || exec bash "$0" "$@"
+
+
 # Output formatting helpers
-info() { echo -e "\033[1;34m[INFO]\033[0m $*"; }
-success() { echo -e "\033[1;32m[SUCCESS]\033[0m $*"; }
-warn() { echo -e "\033[1;33m[WARN]\033[0m $*"; }
-error() { echo -e "\033[1;31m[ERROR]\033[0m $*"; exit 1; }
-dry_run_msg() { echo -e "\033[1;30m[DRY-RUN]\033[0m $*"; }
+info() { printf '\033[1;34m[INFO]\033[0m %s\n' "$*"; }
+success() { printf '\033[1;32m[SUCCESS]\033[0m %s\n' "$*"; }
+warn() { printf '\033[1;33m[WARN]\033[0m %s\n' "$*"; }
+error() { printf '\033[1;31m[ERROR]\033[0m %s\n' "$*"; exit 1; }
+dry_run_msg() { printf '\033[1;30m[DRY-RUN]\033[0m %s\n' "$*"; }
 
 # Dotfiles repo path (assumed to be current working directory of script run)
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -63,7 +67,7 @@ if [ "$OS" = "Darwin" ]; then
     info "Installing macOS System Packages via Homebrew..."
     BREW_PACKAGES=(git tmux ripgrep fd lazygit gh go node)
     for pkg in "${BREW_PACKAGES[@]}"; do
-        if ! command -v "$pkg" &> /dev/null && ! brew list --formula | grep -q "^$pkg$" 2>/dev/null; then
+        if ! command -v "$pkg" &> /dev/null && ! brew list --formula | grep -x "$pkg" &>/dev/null; then
             if [ "$DRY_RUN" = "true" ]; then
                 dry_run_msg "Would install $pkg via Homebrew"
             else
@@ -81,7 +85,7 @@ if [ "$OS" = "Darwin" ]; then
         dry_run_msg "Would install font-hack-nerd-font and font-caskaydia-cove-nerd-font casks via Homebrew"
     else
         brew install --cask font-hack-nerd-font || warn "Could not install Hack Nerd Font Cask"
-        brew install --cask font-caskaydia-cove-nerd-font || warn "Could not install Cascadia Nerd Font Cask"
+        brew install --cask font-caskaydia-cove-nerd-font || warn "Could not install Caskaydia Cove Nerd Font Cask"
     fi
 
 elif [ "$OS" = "Linux" ]; then
@@ -100,7 +104,7 @@ elif [ "$OS" = "Linux" ]; then
     info "Installing Linux System Packages..."
     APT_PACKAGES=(git tmux ripgrep fd-find xclip clangd curl build-essential unzip)
     for pkg in "${APT_PACKAGES[@]}"; do
-        if ! dpkg -l | grep -q " $pkg " 2>/dev/null; then
+        if ! dpkg -l | grep " $pkg " &>/dev/null; then
             if [ "$DRY_RUN" = "true" ]; then
                 dry_run_msg "Would install $pkg via APT"
             else
@@ -209,7 +213,7 @@ for tool in "${PYTHON_TOOLS[@]}"; do
     # Check if tool is already installed (skipped in dry-run since list might change)
     if [ "$DRY_RUN" = "true" ]; then
         dry_run_msg "Would check and install $tool globally via uv tool install"
-    elif ! uv tool list | grep -q "^$tool " 2>/dev/null; then
+    elif ! uv tool list | grep "^$tool " &>/dev/null; then
         info "Installing $tool..."
         uv tool install "$tool"
     else
